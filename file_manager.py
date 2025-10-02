@@ -13,7 +13,8 @@ import sys
 def display_welcome():
     """Display welcome message to the user."""
     print("=" * 50)
-    print("   Welcome to Python CLI File Manager!")
+    print("Welcome to Python CLI File Manager!")
+    print()
     print("=" * 50)
     print("This is a simple file manager to demonstrate")
     print("Python fundamentals: variables, expressions,")
@@ -45,8 +46,8 @@ def calculate_file_size():
         
         # Calculate size in different units
         # TODO: Fix the code below to perform floating point division
-        size_kb = size_bytes // 1024
-        size_mb = size_kb // 1024
+        size_kb = size_bytes / 1024
+        size_mb = size_kb / 1024
         
         # Display results
         print(f"\nFile: {filename}")
@@ -74,17 +75,18 @@ def get_user_choice():
     print()
     
     choice = input("Enter your choice (help/calc/info/quit): ").strip().lower()
+    return choice
     # TODO: Add code to return the choice
 
 
 def display_help():
     """Display help information about available commands."""
     print("\n" + "=" * 40)
-    print("           HELP - Available Commands")
+    print("HELP - Available Commands")
     print("=" * 40)
     print("help  - Display this help message")
     print("calc  - Calculate the size of a file")
-    print("        You'll be prompted to enter a filename")
+    print(" - You'll be prompted to enter a filename")
     print("info  - Show information about this program")
     print("quit  - Exit the file manager")
     print()
@@ -98,7 +100,7 @@ def display_help():
 def display_info():
     """Display program information."""
     print("\n" + "=" * 40)
-    print("         PROGRAM INFORMATION")
+    print("PROGRAM INFORMATION")
     print("=" * 40)
     print("Program: Python CLI File Manager")
     print("Purpose: Week 1 Python fundamentals practice")
@@ -169,7 +171,7 @@ def main():
             
             # Use the extracted function to process the command
             # This demonstrates calling a function with keyword arguments
-            running = process_user_command(choice, running)
+            running = process_user_command(choice=choice, running=running)
                 
         except KeyboardInterrupt:
             print("\n\nProgram interrupted by user.")
@@ -179,7 +181,6 @@ def main():
             print("\n\nEnd of input detected.")
             print("Thank you for using Python CLI File Manager!")
             break
-
 
 if __name__ == "__main__":
     main()
